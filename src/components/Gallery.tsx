@@ -1,4 +1,7 @@
 import './Gallery.css';
+import gallery1Img from '../assets/images/gallery-1.png';
+import gallery2Img from '../assets/images/gallery-2.png';
+import outdoorImg from '../assets/images/Outdoor.png';
 
 const Gallery: React.FC = () => {
     return (
@@ -9,15 +12,15 @@ const Gallery: React.FC = () => {
 
                 <div className="gallery-grid">
                     <div className="gallery-item">
-                        <img src="/images/gallery-1.png" alt="Our Dining Room" className="gallery-image" />
+                        <img src={gallery1Img} alt="Our Dining Room" className="gallery-image" />
                         <div className="gallery-caption">Our Dining Room</div>
                     </div>
                     <div className="gallery-item">
-                        <img src="/images/gallery-2.png" alt="Fresh Crepes" className="gallery-image" />
+                        <img src={gallery2Img} alt="Fresh Crepes" className="gallery-image" />
                         <div className="gallery-caption">Fresh Crepes</div>
                     </div>
                     <div className="gallery-item">
-                        <img src="/images/Outdoor.png" alt="Outdoor Seating" className="gallery-image" />
+                        <img src={outdoorImg} alt="Outdoor Seating" className="gallery-image" />
                         <div className="gallery-caption">Outdoor Seating</div>
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 import './About.css';
 import { Sun, Users, Coffee, Car } from 'lucide-react';
+import aboutImg from '../assets/images/about.png';
 
 const About: React.FC = () => {
     return (
@@ -37,7 +38,7 @@ const About: React.FC = () => {
                     </div>
 
                     <div className="about-image-container">
-                        <img src="/images/about.png" alt="About Blend Tea and Crepe" className="about-image" />
+                        <img src={aboutImg} alt="About Blend Tea and Crepe" className="about-image" />
                         <div className="about-image-decoration"></div>
                     </div>
                 </div>
