@@ -16,6 +16,10 @@
     margin-bottom: 40px;
 }
 
+.about-content .section-title {
+    text-align: left;
+}
+
 .about-badges {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

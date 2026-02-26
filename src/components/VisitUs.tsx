@@ -1,12 +1,16 @@
+import { useScrollReveal } from '../hooks/useScrollReveal';
+import KineticHeading from './KineticHeading';
 import './VisitUs.css';
 import { MapPin, Clock, Phone } from 'lucide-react';
 
 const VisitUs: React.FC = () => {
+    const revealRef = useScrollReveal();
+
     return (
         <section className="section visitus" id="visit">
-            <div className="container visitus-container">
+            <div className="container visitus-container" ref={revealRef}>
                 <div className="visitus-content">
-                    <h2 className="visitus-title">We'd love to see you.</h2>
+                    <KineticHeading Tag="h2" className="visitus-title" text="We'd love to see you." animateBy="word" />
                     <p className="visitus-subtitle">Stop by for a quick cup of tea or settle in for an afternoon of good food and conversation.</p>
 
                     <div className="visitus-info">

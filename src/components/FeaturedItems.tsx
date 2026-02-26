@@ -1,25 +1,32 @@
+import type { FeaturedItem } from '../types';
+import KineticHeading from './KineticHeading';
+import { useNativeScrollReveal } from '../hooks/useNativeScrollReveal';
 import './FeaturedItems.css';
 
-const featuredItems = [
+const featuredItems: FeaturedItem[] = [
     {
+        id: 'fi-1',
         icon: '🫖',
         name: 'Shaken Ice Tea',
         description: 'Freshly brewed black or green tea blended with your choice of flavor over ice. Add bubbles or jelly.',
         price: 'From $2.25'
     },
     {
+        id: 'fi-2',
         icon: '🥞',
         name: 'Roast Chicken Crepe',
         description: 'Roast chicken, mozzarella, sun-dried tomato & organic spinach wrapped in a warm soft crepe.',
         price: '$4.50'
     },
     {
+        id: 'fi-3',
         icon: '🍓',
         name: 'Fruit Sweet Crepe',
         description: 'Sweet crepe with fresh banana and/or strawberry, your choice of spread, and optional ice cream.',
         price: 'From $3.99'
     },
     {
+        id: 'fi-4',
         icon: '🧋',
         name: 'Hot Milk Tea',
         description: 'Freshly brewed black tea blended with hot milk and your choice of flavor. Rich and creamy.',
@@ -28,19 +35,27 @@ const featuredItems = [
 ];
 
 const FeaturedItems: React.FC = () => {
-    return (
-        <section className="section bg-alt" id="featured">
-            <div className="container">
-                <h2 className="section-title">Fan Favorites</h2>
-                <p className="section-subtitle">Handpicked selections to start your journey at Blend.</p>
+    const revealRef = useNativeScrollReveal();
 
-                <div className="featured-grid">
+    return (
+        <section className="section css-featured-section" id="featured">
+            <div className="container">
+                <KineticHeading Tag="h2" className="section-title css-featured-title" text="BLEND Tea & Crepe" animateBy="word" />
+
+                <div className="css-featured-container" ref={revealRef}>
                     {featuredItems.map((item, index) => (
-                        <div className="featured-card" key={index}>
-                            <div className="featured-icon">{item.icon}</div>
-                            <h3 className="featured-name">{item.name}</h3>
-                            <p className="featured-desc">{item.description}</p>
-                            <div className="featured-price">{item.price}</div>
+                        <div
+                            key={item.id}
+                            className="css-featured-card reveal-on-scroll"
+                            style={{ transitionDelay: `${index * 150}ms` }}
+                        >
+                            <div className="css-featured-icon">{item.icon}</div>
+                            <div className="css-featured-content">
+                                <h3 className="css-featured-name">{item.name}</h3>
+                                <p className="css-featured-desc">{item.description}</p>
+                                <div className="css-featured-divider"></div>
+                                <div className="css-featured-price">{item.price}</div>
+                            </div>
                         </div>
                     ))}
                 </div>

@@ -1,14 +1,23 @@
+import { useScrollReveal } from '../hooks/useScrollReveal';
+import KineticHeading from './KineticHeading';
 import './About.css';
 import { Sun, Users, Coffee, Car } from 'lucide-react';
 import aboutImg from '../assets/images/about.png';
 
 const About: React.FC = () => {
+    const revealRef = useScrollReveal();
+
     return (
         <section className="section about" id="about">
             <div className="container">
-                <div className="about-grid">
+                <div className="about-grid" ref={revealRef}>
                     <div className="about-content">
-                        <h2 className="section-title" style={{ textAlign: 'left' }}>The Blend Story</h2>
+                        <KineticHeading
+                            Tag="h2"
+                            className="section-title"
+                            text="The Blend Story"
+                            animateBy="word"
+                        />
                         <p className="about-text">
                             Blend Tea & Crepe Lounge is Carbondale's cozy corner for handcrafted food and real relaxation.
                             Tucked inside a charming brick building with a white picket fence, we've created a space that

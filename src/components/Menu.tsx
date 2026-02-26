@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import './Menu.css';
+import KineticHeading from './KineticHeading';
+import type { MenuData } from '../types';
+import TiltCard from './TiltCard';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 // Menu data organized by category
-const menuData = {
+const menuData: MenuData = {
     "Shaken Ice Tea": [
         { name: 'Plain (16oz / 24oz)', price: '$2.25 / $2.75', desc: 'No bubbles or jelly' },
         { name: 'With Bubbles or Jelly (16oz / 24oz)', price: '$2.60 / $3.10', desc: 'Added toppings' },
@@ -69,13 +73,14 @@ const categories = Object.keys(menuData);
 
 const Menu: React.FC = () => {
     const [activeTab, setActiveTab] = useState("Savory Crepes");
+    const revealRef = useScrollReveal();
 
     const currentItems = menuData[activeTab as keyof typeof menuData];
 
     return (
         <section className="section bg-alt" id="menu">
             <div className="container">
-                <h2 className="section-title">Our Menu</h2>
+                <KineticHeading Tag="h2" className="section-title" text="Our Menu" animateBy="word" />
                 <p className="section-subtitle">Explore our wide variety of handcrafted teas and fresh-made crepes.</p>
 
                 {/* Scrollable Tabs Container */}
@@ -94,15 +99,17 @@ const Menu: React.FC = () => {
                 </div>
 
                 {/* Menu Items List */}
-                <div className="menu-items-container">
+                <div className="menu-items-container" ref={revealRef}>
                     {currentItems.map((item, index) => (
-                        <div className="menu-item-card" key={index}>
-                            <div className="menu-item-header">
-                                <h3 className="menu-item-name">{item.name}</h3>
-                                <div className="menu-item-dots"></div>
-                                <div className="menu-item-price">{item.price}</div>
-                            </div>
-                            <p className="menu-item-desc">{item.desc}</p>
+                        <div key={index}>
+                            <TiltCard className="menu-item-card">
+                                <div className="menu-item-header">
+                                    <h3 className="menu-item-name">{item.name}</h3>
+                                    <div className="menu-item-dots"></div>
+                                    <div className="menu-item-price">{item.price}</div>
+                                </div>
+                                <p className="menu-item-desc">{item.desc}</p>
+                            </TiltCard>
                         </div>
                     ))}
                 </div>
