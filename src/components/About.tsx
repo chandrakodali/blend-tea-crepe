@@ -47,7 +47,7 @@ const About: React.FC = () => {
                     </div>
 
                     <div className="about-image-container">
-                        <img src={aboutImg} alt="About Blend Tea and Crepe" className="about-image" />
+                        <img src={aboutImg} alt="About Blend Tea and Crepe" className="about-image" loading="lazy" />
                         <div className="about-image-decoration"></div>
                     </div>
                 </div>

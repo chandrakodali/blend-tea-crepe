@@ -1,5 +1,7 @@
 .gallery {
     background-color: var(--color-bg-base);
+    content-visibility: auto;
+    contain-intrinsic-size: auto 800px;
 }
 
 .gallery-grid {
@@ -17,6 +19,8 @@
     transition: var(--transition-base);
     aspect-ratio: 4/5;
     background-color: var(--color-white);
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
 .gallery-item:hover {

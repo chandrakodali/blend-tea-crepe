@@ -2,7 +2,6 @@ import { useState } from 'react';
 import './Menu.css';
 import KineticHeading from './KineticHeading';
 import type { MenuData } from '../types';
-import TiltCard from './TiltCard';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 // Menu data organized by category
@@ -98,18 +97,16 @@ const Menu: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Menu Items List */}
+                {/* Menu Items List — plain divs instead of TiltCard for performance */}
                 <div className="menu-items-container" ref={revealRef}>
                     {currentItems.map((item, index) => (
-                        <div key={index}>
-                            <TiltCard className="menu-item-card">
-                                <div className="menu-item-header">
-                                    <h3 className="menu-item-name">{item.name}</h3>
-                                    <div className="menu-item-dots"></div>
-                                    <div className="menu-item-price">{item.price}</div>
-                                </div>
-                                <p className="menu-item-desc">{item.desc}</p>
-                            </TiltCard>
+                        <div key={index} className="menu-item-card">
+                            <div className="menu-item-header">
+                                <h3 className="menu-item-name">{item.name}</h3>
+                                <div className="menu-item-dots"></div>
+                                <div className="menu-item-price">{item.price}</div>
+                            </div>
+                            <p className="menu-item-desc">{item.desc}</p>
                         </div>
                     ))}
                 </div>

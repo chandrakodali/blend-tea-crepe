@@ -1,19 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { Menu, X } from 'lucide-react';
 import './Navbar.css';
 
 const Navbar: React.FC = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const isScrolledRef = useRef(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
+            const scrolled = window.scrollY > 20;
+            // Only trigger React re-render when the state actually changes
+            if (scrolled !== isScrolledRef.current) {
+                isScrolledRef.current = scrolled;
+                setIsScrolled(scrolled);
+            }
         };
 
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    const closeMobileMenu = useCallback(() => setMobileMenuOpen(false), []);
 
     const navLinks = [
         { name: 'Home', href: '#home' },
@@ -60,7 +68,7 @@ const Navbar: React.FC = () => {
                             key={link.name}
                             href={link.href}
                             className="mobile-nav-link"
-                            onClick={() => setMobileMenuOpen(false)}
+                            onClick={closeMobileMenu}
                         >
                             {link.name}
                         </a>
@@ -68,7 +76,7 @@ const Navbar: React.FC = () => {
                     <a
                         href="#order"
                         className="btn btn-primary mobile-cta"
-                        onClick={() => setMobileMenuOpen(false)}
+                        onClick={closeMobileMenu}
                     >
                         Order Online
                     </a>

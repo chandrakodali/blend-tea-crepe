@@ -1,10 +1,32 @@
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { useEffect, useRef, useState } from 'react';
 import KineticHeading from './KineticHeading';
 import './VisitUs.css';
 import { MapPin, Clock, Phone } from 'lucide-react';
 
 const VisitUs: React.FC = () => {
     const revealRef = useScrollReveal();
+    const mapContainerRef = useRef<HTMLDivElement>(null);
+    const [showMap, setShowMap] = useState(false);
+
+    // Lazy-load the Google Maps iframe only when the section is near the viewport
+    useEffect(() => {
+        const el = mapContainerRef.current;
+        if (!el) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setShowMap(true);
+                    observer.disconnect();
+                }
+            },
+            { rootMargin: '200px' } // Start loading 200px before visible
+        );
+
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, []);
 
     return (
         <section className="section visitus" id="visit">
@@ -49,19 +71,20 @@ const VisitUs: React.FC = () => {
                     </a>
                 </div>
 
-                <div className="visitus-map">
-                    {/* Iframe Placeholder Map Styled as a Car */}
+                <div className="visitus-map" ref={mapContainerRef}>
                     <div className="map-placeholder">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3140.6627027878363!2d-89.21997382343161!3d37.7126130720445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x887768fb3ac25ea5%3A0xe5a36ebd77b78913!2s719%20S%20University%20Ave%2C%20Carbondale%2C%20IL%2062901!5e0!3m2!1sen!2sus!4v1709841804107!5m2!1sen!2sus"
-                            width="100%"
-                            height="100%"
-                            style={{ border: 0 }}
-                            allowFullScreen={false}
-                            loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade"
-                            title="Google Maps Location for Blend Tea & Crepe"
-                        ></iframe>
+                        {showMap ? (
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3140.6627027878363!2d-89.21997382343161!3d37.7126130720445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x887768fb3ac25ea5%3A0xe5a36ebd77b78913!2s719%20S%20University%20Ave%2C%20Carbondale%2C%20IL%2062901!5e0!3m2!1sen!2sus!4v1709841804107!5m2!1sen!2sus"
+                                width="100%"
+                                height="100%"
+                                style={{ border: 0 }}
+                                allowFullScreen={false}
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                title="Google Maps Location for Blend Tea & Crepe"
+                            ></iframe>
+                        ) : null}
                     </div>
                 </div>
             </div>
