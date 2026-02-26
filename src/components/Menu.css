@@ -1,0 +1,116 @@
+.menu-tabs-wrapper {
+    overflow-x: auto;
+    margin-bottom: 48px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.menu-tabs-wrapper::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+.menu-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    padding: 8px 4px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    min-width: max-content;
+    margin: 0 auto;
+}
+
+.menu-tab {
+    white-space: nowrap;
+    padding: 12px 4px;
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    background-color: transparent;
+    border-bottom: 3px solid transparent;
+    transition: var(--transition-base);
+}
+
+.menu-tab:hover {
+    color: var(--color-primary);
+}
+
+.menu-tab.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+}
+
+.menu-items-container {
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: 48px;
+    box-shadow: var(--shadow-sm);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.menu-item-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu-item-header {
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+}
+
+.menu-item-name {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin: 0;
+}
+
+.menu-item-dots {
+    flex-grow: 1;
+    border-bottom: 2px dotted #DDCFB4;
+    margin: 0 16px;
+    position: relative;
+    top: -4px;
+}
+
+.menu-item-price {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: var(--color-text-base);
+    white-space: nowrap;
+}
+
+.menu-item-desc {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    font-style: italic;
+    line-height: 1.5;
+    margin: 0;
+}
+
+@media (max-width: 992px) {
+    .menu-tabs {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-items-container {
+        grid-template-columns: 1fr;
+        padding: 32px 24px;
+        gap: 32px;
+    }
+
+    .menu-item-dots {
+        margin: 0 8px;
+    }
+}
