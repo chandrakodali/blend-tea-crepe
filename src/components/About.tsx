@@ -23,7 +23,8 @@ const About: React.FC = () => {
                             Tucked inside a charming brick building with a white picket fence, we've created a space that
                             feels like a home away from home — whether you're catching up with friends, enjoying a quiet
                             afternoon, or treating the family to something special. Every crepe is made fresh. Every tea
-                            is brewed with care.
+                            is brewed with care. Run by Ming and a close-knit team, every visit feels personal — because
+                            to us, every Blender is family.
                         </p>
 
                         <div className="about-badges">

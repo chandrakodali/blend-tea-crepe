@@ -45,9 +45,6 @@ const Navbar: React.FC = () => {
                             {link.name}
                         </a>
                     ))}
-                    <a href="#order" className="btn btn-primary nav-cta">
-                        Order Online
-                    </a>
                 </div>
 
                 {/* Mobile Toggle */}
@@ -73,13 +70,6 @@ const Navbar: React.FC = () => {
                             {link.name}
                         </a>
                     ))}
-                    <a
-                        href="#order"
-                        className="btn btn-primary mobile-cta"
-                        onClick={closeMobileMenu}
-                    >
-                        Order Online
-                    </a>
                 </div>
             </div>
         </nav>

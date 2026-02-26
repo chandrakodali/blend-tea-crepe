@@ -15,10 +15,10 @@ const Hero: React.FC = () => {
                         triggerOnLoad={true}
                         delay={0.2}
                     />
-                    <p className="hero-subtitle">Handcrafted Crepes & Premium Teas in the Heart of Carbondale</p>
+                    <p className="hero-subtitle">Handcrafted Crepes & Premium Teas in the Heart of Carbondale — Let's Blend Together!</p>
                     <div className="hero-buttons">
                         <a href="#menu" className="btn btn-primary btn-lg">View Our Menu</a>
-                        <a href="#visit" className="btn btn-secondary btn-secondary-light btn-lg">Find Us</a>
+                        <a href="#visit" className="btn btn-secondary btn-secondary-light btn-lg">Visit Us, Blender!</a>
                     </div>
                 </div>
             </div>

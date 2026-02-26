@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
                         BLEND<span className="logo-icon">🧋</span>
                         <span className="logo-subtitle" style={{ color: 'var(--color-bg-alt)' }}>Tea & Crepe</span>
                     </a>
-                    <p className="footer-tagline">Handcrafted with care in Carbondale, IL</p>
+                    <p className="footer-tagline">Let's Blend Together — Carbondale, IL</p>
                 </div>
 
                 <div className="footer-links">

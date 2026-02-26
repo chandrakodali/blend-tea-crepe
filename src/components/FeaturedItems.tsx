@@ -27,10 +27,10 @@ const featuredItems: FeaturedItem[] = [
     },
     {
         id: 'fi-4',
-        icon: '🧋',
-        name: 'Hot Milk Tea',
-        description: 'Freshly brewed black tea blended with hot milk and your choice of flavor. Rich and creamy.',
-        price: 'From $3.20'
+        icon: '❄️',
+        name: 'Seasonal Special',
+        description: 'White Chocolate Peppermint Milk Tea — our winter favorite is back! Rich, creamy, and festive.',
+        price: 'Limited Time'
     }
 ];
 
