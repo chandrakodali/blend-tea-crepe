@@ -1,0 +1,96 @@
+.announcement-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1100;
+    background: linear-gradient(135deg, #7B2232 0%, #5a1525 100%);
+    color: var(--color-white);
+    padding: 10px 0;
+    box-shadow: 0 2px 12px rgba(123, 34, 50, 0.3);
+    animation: bannerSlideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes bannerSlideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.announcement-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.announcement-emoji {
+    font-size: 1.15rem;
+    flex-shrink: 0;
+}
+
+.announcement-message {
+    font-size: 0.925rem;
+    font-weight: 500;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.announcement-sign {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.875rem;
+    color: var(--color-accent);
+    flex-shrink: 0;
+}
+
+.announcement-dismiss {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.7);
+    flex-shrink: 0;
+    margin-left: 8px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.announcement-dismiss:hover {
+    color: var(--color-white);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Push navbar down when banner is visible */
+body:has(.announcement-banner) .navbar {
+    top: 42px;
+}
+
+body:has(.announcement-banner) .mobile-menu {
+    top: 112px;
+}
+
+@media (max-width: 768px) {
+    .announcement-message {
+        font-size: 0.8rem;
+    }
+
+    .announcement-sign {
+        display: none;
+    }
+
+    body:has(.announcement-banner) .navbar {
+        top: 38px;
+    }
+
+    body:has(.announcement-banner) .mobile-menu {
+        top: 108px;
+    }
+}

@@ -56,7 +56,7 @@ const VisitUs: React.FC = () => {
                             <Phone className="info-icon" size={24} />
                             <div>
                                 <strong>Phone</strong>
-                                <p>(618) 555-0198</p>
+                                <p>(618) 319-1441</p>
                             </div>
                         </div>
                     </div>
