@@ -46,9 +46,17 @@ const VisitUs: React.FC = () => {
 
                         <div className="info-item">
                             <Clock className="info-icon" size={24} />
-                            <div>
+                            <div className="hours-container">
                                 <strong>Hours</strong>
-                                <p>Mon–Sun: 11:00 AM – 9:00 PM</p>
+                                <ul className="hours-list">
+                                    <li><span>Monday</span><span>11:00 AM – 9:00 PM</span></li>
+                                    <li><span>Tuesday</span><span>11:00 AM – 9:00 PM</span></li>
+                                    <li><span>Wednesday</span><span>11:00 AM – 9:00 PM</span></li>
+                                    <li><span>Thursday</span><span>11:00 AM – 9:00 PM</span></li>
+                                    <li><span>Friday</span><span>11:00 AM – 9:00 PM</span></li>
+                                    <li><span>Saturday</span><span>11:00 AM – 9:00 PM</span></li>
+                                    <li><span>Sunday</span><span>11:00 AM – 9:00 PM</span></li>
+                                </ul>
                             </div>
                         </div>
 
